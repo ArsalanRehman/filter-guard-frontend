@@ -55,6 +55,10 @@ const App = () => {
               path="/activityLog"
               element={userName ? <ActivityLog /> : <Navigate to="/login" replace />}
             />
+              <Route
+              path="/updatePassword"
+              element={userName ? <UpdatePassword /> : <Navigate to="/login" replace />}
+            />
           </Routes>
 
             <Box flex={1}></Box>

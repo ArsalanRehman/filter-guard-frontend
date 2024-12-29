@@ -90,9 +90,6 @@ const Sidebar = () => {
             ref={btnRef}
             icon={<Icon as={RxHamburgerMenu} />}
           />
-
-
-
         </Box>
       </Flex>
 
@@ -107,14 +104,7 @@ const Sidebar = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>
-            {LanguageLocalizer['welcome']} {userName}
-            {/* <br /> */}
-            {/* {localStorage.getItem('role') === 'user' && (
-              <div>
-                {LanguageLocalizer['department_head']} :{' '}
-                {localStorage.getItem('departmentHead')}
-              </div>
-            )} */}
+            {LanguageLocalizer['welcome']} {userName} 
           </DrawerHeader>
 
           <DrawerBody>
@@ -148,7 +138,7 @@ const Sidebar = () => {
       </AccordionButton>
       <AccordionPanel>
         <SidebarItem
-          to="/changePassword"
+          to="/updatePassword"
           label="Change Password"
           icon={BiKey} // Replace with a relevant icon
         />

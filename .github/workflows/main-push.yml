@@ -18,7 +18,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_RSA }}
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USERNAME }}
-          REPO_URL: https://github.com/epikrobotiksoftware/boyar_satin_alma_frontend.git
+          REPO_URL: https://github.com/ArsalanRehman/filter-guard-frontend
         run: |
           set -e  # Exit immediately if any command exits with a non-zero status
           echo "$SSH_PRIVATE_KEY" > id_rsa

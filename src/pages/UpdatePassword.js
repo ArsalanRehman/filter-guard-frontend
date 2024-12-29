@@ -42,10 +42,7 @@ const UpdatePassword = () => {
       return
     }
 
-    // const res = await APIs.UpdatePassword({
-    //   oldPassword: oldPassword,
-    //   password: newPassword,
-    // })
+
 
     if (res.fail === false) {
       if (role === 'user' && departmentHeadID === '2') {
