@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "react-hooks/exhaustive-deps": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "parser": "@babel/eslint-parser"
+
+}

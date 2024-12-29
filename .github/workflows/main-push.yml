@@ -1,0 +1,35 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy via SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_RSA }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USERNAME }}
+          REPO_URL: https://github.com/epikrobotiksoftware/boyar_satin_alma_frontend.git
+        run: |
+          set -e  # Exit immediately if any command exits with a non-zero status
+          echo "$SSH_PRIVATE_KEY" > id_rsa
+          chmod 600 id_rsa
+          ssh -i id_rsa -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST << 'EOF'
+          set -e
+          cd boyar_satin_alma_frontend
+          git pull origin main
+          npm install
+          npm run build
+          rm -r /var/www/html/*
+          cp -r build/* /var/www/html/
+          service apache2 restart
+          EOF
